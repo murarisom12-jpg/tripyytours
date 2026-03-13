@@ -1,0 +1,2388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrippyVibeZ </title>
+  <meta name="description" content="TrippyVibeZ is a premium creator-led travel platform for Himalayan adventures, village experiences and cultural journeys." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+  --bg:#071018;
+  --bg-2:#0b1624;
+  --panel:rgba(255,255,255,0.05);
+  --panel-2:rgba(255,255,255,0.08);
+  --stroke:rgba(255,255,255,0.10);
+  --text:#f6f8fb;
+  --muted:rgba(246,248,251,0.68);
+  --accent:#9dc7bd;
+  --accent-2:#8fa8b8;
+  --gold:#d7c19a;
+  --danger:#ff7a7a;
+  --shadow:0 20px 60px rgba(0,0,0,0.35);
+  --radius:24px;
+  --radius-lg:32px;
+  --container:1240px;
+}
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+  font-family:'Inter',sans-serif;
+  background:
+    linear-gradient(rgba(5,11,18,0.72), rgba(5,11,18,0.82)),
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+  color:var(--text);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,
+    input,
+    select,
+    textarea{
+      font:inherit;
+      border:none;
+      outline:none;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 32px));
+      margin-inline:auto;
+    }
+
+    .section{
+      padding:92px 0;
+      position:relative;
+    }
+
+    .section-title{
+      max-width:700px;
+      margin-bottom:38px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      backdrop-filter:blur(10px);
+      color:var(--muted);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:11px;
+      margin-bottom:18px;
+    }
+
+    .section-title h2{
+      font-family:'Clash Display', 'Inter', sans-serif;
+      font-size:clamp(32px, 5vw, 58px);
+      line-height:1.04;
+      letter-spacing:-.03em;
+      margin-bottom:14px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      font-size:16px;
+      max-width:650px;
+    }
+
+    .glass{
+      background:var(--panel);
+      border:1px solid var(--stroke);
+      backdrop-filter:blur(16px);
+      box-shadow:var(--shadow);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:.28s ease;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #a9f2d8);
+      color:#031019;
+      box-shadow:0 12px 30px rgba(123,231,193,0.22);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 40px rgba(123,231,193,0.28);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.06);
+      color:var(--text);
+      border:1px solid var(--stroke);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.1);
+      transform:translateY(-2px);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,0.04);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .site-header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      border-bottom:1px solid transparent;
+      transition:.3s ease;
+    }
+
+    .site-header.scrolled{
+      background:rgba(4,12,22,0.74);
+      backdrop-filter:blur(16px);
+      border-color:rgba(255,255,255,0.08);
+    }
+
+    .header-row{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .brand-badge{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      display:grid;
+      place-items:center;
+      color:#021018;
+      font-weight:800;
+      box-shadow:0 10px 24px rgba(143,184,255,0.25);
+    }
+
+    .brand span{
+      font-family:'Clash Display', sans-serif;
+      font-size:22px;
+      letter-spacing:-.03em;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      color:var(--muted);
+      transition:.25s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active{
+      color:var(--text);
+      background:rgba(255,255,255,0.06);
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .menu-btn{
+      display:none;
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.07);
+      color:var(--text);
+      cursor:pointer;
+    }
+
+    .mobile-panel{
+      display:none;
+      position:absolute;
+      top:84px;
+      left:16px;
+      right:16px;
+      border-radius:24px;
+      padding:16px;
+      background:rgba(5,15,28,0.96);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+    }
+
+    .mobile-panel a{
+      display:block;
+      padding:14px 16px;
+      color:var(--muted);
+      border-radius:16px;
+    }
+
+    .mobile-panel a:hover{
+      background:rgba(255,255,255,0.05);
+      color:var(--text);
+    }
+
+    .hero{
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      padding-top:96px;
+    }
+
+    .hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.34) saturate(0.9) contrast(1.05);
+}
+    
+
+    .hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(4,8,12,0.22) 0%, rgba(5,11,18,0.42) 24%, rgba(5,11,18,0.78) 72%, rgba(5,11,18,0.92) 100%),
+    radial-gradient(circle at 18% 22%, rgba(155,199,189,0.10), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(143,168,184,0.12), transparent 26%);
+}
+    
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:32px;
+      align-items:end;
+      width:100%;
+    }
+
+    .hero-copy h1{
+      font-family:'Clash Display', sans-serif;
+      font-size:clamp(52px, 8vw, 96px);
+      line-height:.95;
+      letter-spacing:-.05em;
+      max-width:760px;
+    }
+
+    .hero-copy p{
+      margin-top:20px;
+      max-width:620px;
+      color:rgba(255,255,255,0.74);
+      font-size:18px;
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      align-self:end;
+    }
+
+    .stat-card{
+      border-radius:24px;
+      padding:18px;
+      min-height:126px;
+    }
+
+    .stat-label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--muted);
+    }
+
+    .stat-value{
+      font-size:30px;
+      font-weight:800;
+      margin-top:10px;
+      letter-spacing:-.04em;
+    }
+
+    .stat-note{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .floating-scroll{
+      position:absolute;
+      bottom:28px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:2;
+      color:rgba(255,255,255,0.7);
+      font-size:13px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+
+    .scroll-line{
+      width:1px;
+      height:58px;
+      background:linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0));
+      animation:scrollLine 1.7s infinite ease-in-out;
+    }
+
+    @keyframes scrollLine{
+      0%,100%{opacity:.35; transform:scaleY(.55);}
+      50%{opacity:1; transform:scaleY(1);}
+    }
+
+    .trip-grid,
+    .creator-grid,
+    .community-grid,
+    .about-grid,
+    .vision-grid{
+      display:grid;
+      gap:22px;
+    }
+
+    .trip-grid{
+      grid-template-columns:repeat(3, 1fr);
+    }
+
+    .trip-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      min-height:460px;
+      transform:translateY(0);
+      transition:.35s ease;
+    }
+
+    .trip-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .trip-image-wrap{
+      position:absolute;
+      inset:0;
+    }
+
+    .trip-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .8s ease;
+    }
+
+    .trip-card:hover .trip-image{
+      transform:scale(1.08);
+    }
+
+    .trip-shade{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.18), rgba(0,0,0,0.9));
+    }
+
+    .trip-top,
+    .trip-bottom{
+      position:absolute;
+      left:22px;
+      right:22px;
+      z-index:2;
+    }
+
+    .trip-top{
+      top:22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.14);
+      color:#fff;
+      font-size:13px;
+      backdrop-filter:blur(12px);
+    }
+
+    .trip-bottom{
+      bottom:22px;
+    }
+
+    .trip-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin:14px 0 18px;
+      color:rgba(255,255,255,0.78);
+      font-size:14px;
+    }
+
+    .trip-title{
+      font-size:30px;
+      line-height:1.08;
+      font-weight:800;
+      letter-spacing:-.03em;
+    }
+
+    .trip-host{
+      color:rgba(255,255,255,0.72);
+      font-size:15px;
+    }
+
+    .trip-actions{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .icon-inline{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .concept-layout{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .concept-text .feature-list{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .feature-item{
+      padding:18px;
+      border-radius:22px;
+    }
+
+    .feature-item h4{
+      font-size:16px;
+      margin-bottom:8px;
+    }
+
+    .feature-item p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .creator-showcase{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .creator-mini{
+      border-radius:26px;
+      overflow:hidden;
+      position:relative;
+      min-height:270px;
+    }
+
+    .creator-mini img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .creator-mini::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.76));
+    }
+
+    .creator-mini .content{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+      z-index:2;
+    }
+
+    .creator-mini h4{
+      font-size:19px;
+      margin-bottom:6px;
+    }
+
+    .creator-mini p{
+      color:rgba(255,255,255,0.75);
+      font-size:14px;
+    }
+
+    .category-row{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:16px;
+    }
+
+    .category-card{
+      border-radius:26px;
+      padding:26px 20px;
+      text-align:left;
+      cursor:pointer;
+      transition:.3s ease;
+      position:relative;
+      overflow:hidden;
+      min-height:140px;
+    }
+
+    .category-card:hover,
+    .category-card.active{
+      transform:translateY(-6px);
+      background:rgba(255,255,255,0.1);
+      border-color:rgba(255,255,255,0.18);
+    }
+
+    .category-card .icon{
+      font-size:30px;
+      margin-bottom:18px;
+    }
+
+    .category-card h4{
+      font-size:18px;
+      line-height:1.2;
+    }
+
+    .map-preview{
+      position:relative;
+      border-radius:32px;
+      overflow:hidden;
+      min-height:560px;
+      background:
+        linear-gradient(180deg, rgba(5,12,18,.1), rgba(5,12,18,.6)),
+        url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1600&q=80') center/cover;
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+    }
+
+    .map-grid{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size:40px 40px;
+      mask-image:linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,.55));
+    }
+
+    .map-pin{
+      position:absolute;
+      transform:translate(-50%, -100%);
+      cursor:pointer;
+    }
+
+    .map-pin .dot{
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      border:3px solid rgba(255,255,255,0.95);
+      box-shadow:0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .map-pin.active .dot{
+      transform:scale(1.12);
+    }
+
+    .map-pin .label{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(4,10,18,0.84);
+      border:1px solid rgba(255,255,255,0.14);
+      color:#fff;
+      font-size:12px;
+      white-space:nowrap;
+      backdrop-filter:blur(12px);
+    }
+
+    .map-info{
+      margin-top:24px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+    }
+
+    .info-card{
+      border-radius:28px;
+      padding:24px;
+    }
+
+    .creator-grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .creator-card{
+      border-radius:30px;
+      overflow:hidden;
+      transition:.3s ease;
+    }
+
+    .creator-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .creator-thumb{
+      height:280px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .creator-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .8s ease;
+    }
+
+    .creator-card:hover .creator-thumb img{
+      transform:scale(1.06);
+    }
+
+    .creator-body{
+      padding:22px;
+    }
+
+    .creator-meta{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .meta-chip{
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .meta-chip strong{
+      display:block;
+      color:var(--text);
+      font-size:15px;
+      margin-top:4px;
+    }
+
+    .trip-page-layout{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .gallery-panel{
+      border-radius:32px;
+      overflow:hidden;
+      padding:18px;
+    }
+
+    .main-gallery{
+      border-radius:24px;
+      overflow:hidden;
+      height:460px;
+      position:relative;
+    }
+
+    .main-gallery img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-thumbs{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+
+    .gallery-thumb{
+      height:96px;
+      border-radius:18px;
+      overflow:hidden;
+      cursor:pointer;
+      opacity:.72;
+      border:2px solid transparent;
+      transition:.24s ease;
+    }
+
+    .gallery-thumb.active{
+      opacity:1;
+      border-color:var(--accent);
+    }
+
+    .gallery-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .trip-side{
+      position:sticky;
+      top:104px;
+    }
+
+    .overview-card,
+    .booking-card,
+    .host-card,
+    .timeline-card,
+    .services-card,
+    .form-card,
+    .about-card,
+    .story-card,
+    .cta-card,
+    .footer-card{
+      border-radius:30px;
+      padding:24px;
+    }
+
+    .overview-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .overview-chip{
+      padding:16px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .overview-chip strong{
+      display:block;
+      color:var(--text);
+      font-size:16px;
+      margin-top:5px;
+    }
+
+    .price-row{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin:14px 0 20px;
+    }
+
+    .price{
+      font-size:42px;
+      font-weight:800;
+      letter-spacing:-.04em;
+    }
+
+    .small-muted{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .field-group{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .field{
+      width:100%;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--text);
+    }
+
+    .field::placeholder{
+      color:rgba(255,255,255,0.45);
+    }
+
+    .timeline{
+      margin-top:16px;
+      display:grid;
+      gap:14px;
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:62px 1fr;
+      gap:16px;
+      align-items:start;
+      padding:16px;
+      border-radius:22px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .timeline-day{
+      width:62px;
+      height:62px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#04111a;
+      font-weight:800;
+    }
+
+    .service-list{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    .service-item{
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+    }
+
+    .filter-bar{
+      display:grid;
+      grid-template-columns:2fr repeat(5,1fr);
+      gap:14px;
+      margin-bottom:26px;
+    }
+
+    .search-wrap{
+      position:relative;
+    }
+
+    .search-wrap span{
+      position:absolute;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:rgba(255,255,255,0.46);
+    }
+
+    .search-wrap input{
+      padding-left:44px;
+    }
+
+    .results-count{
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .host-layout{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .benefit-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .benefit{
+      padding:18px;
+      border-radius:22px;
+    }
+
+    .success-cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .success-card{
+      border-radius:22px;
+      overflow:hidden;
+      min-height:220px;
+      position:relative;
+    }
+
+    .success-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .success-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.84));
+    }
+
+    .success-card .text{
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:16px;
+      z-index:2;
+    }
+
+    .about-grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-card h3,
+    .story-card h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .about-card p,
+    .story-card p{
+      color:var(--muted);
+    }
+
+    .vision-grid{
+      grid-template-columns:repeat(4,1fr);
+      margin-top:22px;
+    }
+
+    .vision-item{
+      padding:22px;
+      border-radius:24px;
+    }
+
+    .vision-item h4{
+      margin:16px 0 8px;
+      font-size:18px;
+    }
+
+    .vision-item p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .community-grid{
+      grid-template-columns:repeat(4,1fr);
+      grid-auto-rows:220px;
+    }
+
+    .media-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+    }
+
+    .media-card.large{
+      grid-column:span 2;
+      grid-row:span 2;
+    }
+
+    .media-card.tall{
+      grid-row:span 2;
+    }
+
+    .media-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .8s ease;
+    }
+
+    .media-card:hover img{
+      transform:scale(1.07);
+    }
+
+    .media-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.8));
+    }
+
+    .media-label{
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:16px;
+      z-index:2;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .story-list{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .testimonial{
+      padding:22px;
+      border-radius:26px;
+    }
+
+    .testimonial p{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .testimonial strong{
+      display:block;
+      font-size:16px;
+    }
+
+    .cta-card{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(123,231,193,0.18), transparent 26%),
+        radial-gradient(circle at 90% 20%, rgba(143,184,255,0.18), transparent 30%),
+        rgba(255,255,255,0.05);
+    }
+
+    .footer{
+      padding:24px 0 46px;
+    }
+
+    .footer-card{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:20px;
+      align-items:center;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+    }
+
+    .footer-links a:hover{
+      color:var(--text);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(32px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+
+    .toast{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:3000;
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(6,16,28,0.95);
+      border:1px solid rgba(255,255,255,0.12);
+      color:#fff;
+      box-shadow:var(--shadow);
+      min-width:260px;
+      display:none;
+    }
+
+    .toast.show{
+      display:block;
+      animation:toastIn .28s ease;
+    }
+
+    @keyframes toastIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    @media (max-width: 1180px){
+      .trip-grid{grid-template-columns:repeat(2,1fr);}
+      .creator-grid{grid-template-columns:repeat(2,1fr);}
+      .category-row{grid-template-columns:repeat(3,1fr);}
+      .community-grid{grid-template-columns:repeat(3,1fr);}
+      .filter-bar{grid-template-columns:repeat(3,1fr);}
+      .filter-bar .search-wrap{grid-column:span 3;}
+      .trip-page-layout,
+      .host-layout,
+      .concept-layout,
+      .map-info,
+      .cta-card,
+      .hero-content{grid-template-columns:1fr;}
+      .trip-side{position:static;}
+      .hero-stats{grid-template-columns:repeat(4,1fr);}
+      .story-list{grid-template-columns:1fr 1fr;}
+      .about-grid{grid-template-columns:1fr;}
+      .vision-grid{grid-template-columns:repeat(2,1fr);}
+    }
+
+    @media (max-width: 860px){
+      .nav,
+      .nav-actions .btn{
+        display:none;
+      }
+      .menu-btn{
+        display:grid;
+        place-items:center;
+      }
+      .mobile-panel.open{
+        display:block;
+      }
+      .hero-copy h1{
+        font-size:clamp(44px, 12vw, 72px);
+      }
+      .hero-stats{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .trip-grid,
+      .creator-grid,
+      .community-grid,
+      .story-list,
+      .service-list,
+      .success-cards,
+      .vision-grid,
+      .category-row{
+        grid-template-columns:1fr;
+      }
+      .media-card.large,
+      .media-card.tall{
+        grid-column:span 1;
+        grid-row:span 1;
+      }
+      .community-grid{
+        grid-auto-rows:240px;
+      }
+      .gallery-thumbs{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .filter-bar{
+        grid-template-columns:1fr;
+      }
+      .filter-bar .search-wrap{
+        grid-column:auto;
+      }
+      .overview-grid{
+        grid-template-columns:1fr;
+      }
+      .creator-showcase{
+        grid-template-columns:1fr;
+      }
+      .footer-card{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 560px){
+      .section{
+        padding:72px 0;
+      }
+      .header-row{
+        min-height:70px;
+      }
+      .hero{
+        padding-top:86px;
+      }
+      .trip-title{
+        font-size:25px;
+      }
+      .price{
+        font-size:34px;
+      }
+      .main-gallery{
+        height:320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="container header-row">
+      <a href="#home" class="brand">
+        <div class="brand-badge">T</div>
+        <span>TrippyVibeZ</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#explore">Explore</a>
+        <a href="#trip">Trip</a>
+        <a href="#creators">Creators</a>
+        <a href="#map">Map</a>
+        <a href="#host">Host</a>
+        <a href="#about">About</a>
+        <a href="#community">Community</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#host" class="btn btn-secondary">Host a Trip</a>
+        <a href="#explore" class="btn btn-primary">Explore Experiences</a>
+      </div>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+
+    <div class="mobile-panel" id="mobilePanel">
+      <a href="#home">Home</a>
+      <a href="#explore">Explore Experiences</a>
+      <a href="#trip">Trip Page</a>
+      <a href="#creators">Creators</a>
+      <a href="#map">Discovery Map</a>
+      <a href="#host">Host a Trip</a>
+      <a href="#about">About / Vision</a>
+      <a href="#community">Community</a>
+    </div>
+  </header>
+
+  <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80">
+  <source src="https://cdn.coverr.co/videos/coverr-flying-over-snowy-mountains-1562841188017?download=1080p" type="video/mp4">
+</video>
+    <div class="container hero-content">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">Creator-led Himalayan travel</div>
+        <h1>Explore the Himalayas With Creators</h1>
+        <p>
+          Adventures, village experiences and cultural journeys hosted by creators.
+          Built for story-driven travelers, immersive communities and unforgettable mountain escapes.
+        </p>
+        <div class="hero-actions">
+          <a href="#explore" class="btn btn-primary">Explore Experiences</a>
+          <a href="#host" class="btn btn-secondary">Host a Trip</a>
+          <a href="#map" class="btn btn-secondary">Discover the Map</a>
+        </div>
+      </div>
+
+      <div class="hero-stats reveal">
+        <div class="stat-card glass">
+          <div class="stat-label">Active journeys</div>
+          <div class="stat-value">28+</div>
+          <div class="stat-note">Handpicked creator-hosted escapes</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-label">Verified creators</div>
+          <div class="stat-value">42</div>
+          <div class="stat-note">Adventure, culture and village storytellers</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-label">Himalayan regions</div>
+          <div class="stat-value">11</div>
+          <div class="stat-note">From slow villages to high-altitude routes</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-label">Community vibe</div>
+          <div class="stat-value">4.9★</div>
+          <div class="stat-note">Loved for authenticity, people and moments</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#featured" class="floating-scroll">
+      <span>Scroll</span>
+      <span class="scroll-line"></span>
+    </a>
+  </section>
+
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Featured experiences</div>
+        <h2>Signature Himalayan journeys curated for unforgettable stories.</h2>
+        <p>
+          Premium escapes designed for people who want more than just sightseeing — real communities, cinematic places and creator-led experiences.
+        </p>
+      </div>
+
+      <div class="trip-grid" id="featuredTrips"></div>
+    </div>
+  </section>
+
+  <section class="section" id="travel-with-creators">
+    <div class="container concept-layout">
+      <div class="concept-text reveal">
+        <div class="section-title">
+          <div class="eyebrow">Travel with creators</div>
+          <h2>Travel as part of a story, not just an itinerary.</h2>
+          <p>
+            TrippyVibeZ brings together creators and communities through hosted experiences across the Himalayas. Every trip is personal, immersive and designed around a vibe — from slow village living and mountain treks to spiritual routes and music-filled culture escapes.
+          </p>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature-item glass">
+            <h4>Authentic community</h4>
+            <p>Join people who already connect with the creator’s style, story and energy.</p>
+          </div>
+          <div class="feature-item glass">
+            <h4>Hosted with purpose</h4>
+            <p>Every experience is shaped by creators who know how to turn journeys into memories.</p>
+          </div>
+          <div class="feature-item glass">
+            <h4>Story-first routes</h4>
+            <p>Trips are built around moments, perspectives and cultural depth — not generic tourism.</p>
+          </div>
+          <div class="feature-item glass">
+            <h4>Premium feel</h4>
+            <p>Curated stays, better aesthetics, stronger trust and smoother booking journeys.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="creator-showcase reveal">
+        <div class="creator-mini glass">
+          <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80" alt="Creator">
+          <div class="content">
+            <h4>Aarav Nomad</h4>
+            <p>Adventure storytelling • 182K followers</p>
+          </div>
+        </div>
+        <div class="creator-mini glass">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Creator">
+          <div class="content">
+            <h4>Maya Trails</h4>
+            <p>Village life & slow travel • 96K followers</p>
+          </div>
+        </div>
+        <div class="creator-mini glass">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Creator">
+          <div class="content">
+            <h4>Lens Rohan</h4>
+            <p>Photography expeditions • 204K followers</p>
+          </div>
+        </div>
+        <div class="creator-mini glass">
+          <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80" alt="Creator">
+          <div class="content">
+            <h4>Vedika Journeys</h4>
+            <p>Spiritual Himalayan routes • 121K followers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vibes">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Find your vibe</div>
+        <h2>Choose the kind of journey that feels like you.</h2>
+        <p>
+          Click a category to instantly filter the experience collection across the site.
+        </p>
+      </div>
+
+      <div class="category-row reveal" id="categoryRow">
+        <div class="category-card glass active" data-category="All">
+          <div class="icon">✦</div>
+          <h4>All Experiences</h4>
+        </div>
+        <div class="category-card glass" data-category="Adventure">
+          <div class="icon">⛰</div>
+          <h4>Adventure</h4>
+        </div>
+        <div class="category-card glass" data-category="Village Life">
+          <div class="icon">🏡</div>
+          <h4>Village Life</h4>
+        </div>
+        <div class="category-card glass" data-category="Spiritual">
+          <div class="icon">🕉</div>
+          <h4>Spiritual</h4>
+        </div>
+        <div class="category-card glass" data-category="Music & Culture">
+          <div class="icon">♫</div>
+          <h4>Music & Culture</h4>
+        </div>
+        <div class="category-card glass" data-category="Photography">
+          <div class="icon">📷</div>
+          <h4>Photography</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Discovery map</div>
+        <h2>Explore the Himalayas through a location-based discovery system.</h2>
+        <p>
+          Browse active trips, experiences under development and locations open for future creators.
+        </p>
+      </div>
+
+      <div class="map-preview reveal" id="mapPreview">
+        <div class="map-grid"></div>
+
+        <div class="map-pin active" style="top:23%; left:66%;" data-name="Spiti" data-status="Active trip" data-color="#36d399" data-trip="Unmapped Pass Discovery" data-link="#trip">
+          <div class="dot" style="background:#36d399;"></div>
+          <div class="label">Spiti</div>
+        </div>
+
+        <div class="map-pin" style="top:38%; left:54%;" data-name="Jibhi" data-status="Trip under development" data-color="#f3cf88" data-trip="Village Soul Retreat" data-link="#trip">
+          <div class="dot" style="background:#f3cf88;"></div>
+          <div class="label">Jibhi</div>
+        </div>
+
+        <div class="map-pin" style="top:49%; left:61%;" data-name="Kasol" data-status="Active trip" data-color="#36d399" data-trip="Peaks & Pixels Expedition" data-link="#trip">
+          <div class="dot" style="background:#36d399;"></div>
+          <div class="label">Kasol</div>
+        </div>
+
+        <div class="map-pin" style="top:57%; left:73%;" data-name="Uttarkashi" data-status="Trip under development" data-color="#f3cf88" data-trip="Temple & Silence Route" data-link="#trip">
+          <div class="dot" style="background:#f3cf88;"></div>
+          <div class="label">Uttarkashi</div>
+        </div>
+
+        <div class="map-pin" style="top:44%; left:48%;" data-name="Tirthan" data-status="Open for creators" data-color="#5fb4ff" data-trip="Moonlit Ridge Escape" data-link="#trip">
+          <div class="dot" style="background:#5fb4ff;"></div>
+          <div class="label">Tirthan</div>
+        </div>
+      </div>
+
+      <div class="map-info reveal">
+        <div class="info-card glass">
+          <h3 style="font-size:28px; margin-bottom:10px;">Map legend</h3>
+          <p class="muted" style="margin-bottom:20px;">A visual exploration system for destination discovery and future expansion.</p>
+
+          <div style="display:grid; gap:14px;">
+            <div class="tag"><span style="width:12px;height:12px;border-radius:50%;background:#36d399;display:inline-block;"></span> Green pins — active trips</div>
+            <div class="tag"><span style="width:12px;height:12px;border-radius:50%;background:#f3cf88;display:inline-block;"></span> Yellow pins — trips under development</div>
+            <div class="tag"><span style="width:12px;height:12px;border-radius:50%;background:#5fb4ff;display:inline-block;"></span> Blue pins — locations open for creators</div>
+          </div>
+        </div>
+
+        <div class="info-card glass" id="mapInfoBox">
+          <h3 style="font-size:28px; margin-bottom:8px;">Spiti</h3>
+          <p class="muted" style="margin-bottom:14px;">Active trip</p>
+          <p style="margin-bottom:18px;">Discover dramatic valleys, open skies and premium creator-led mountain routes in one of the most cinematic Himalayan landscapes.</p>
+          <a href="#trip" class="btn btn-primary">View full trip page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="explore">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Explore experiences</div>
+        <h2>Browse trips by location, budget, duration, difficulty and vibe.</h2>
+        <p>
+          Designed as a premium exploration page with visual-first cards, clean controls and quick discovery.
+        </p>
+      </div>
+
+      <div class="filter-bar reveal">
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input type="text" class="field" id="searchInput" placeholder="Search by trip, host or location">
+        </div>
+
+        <select class="field" id="locationFilter">
+          <option value="All">All Locations</option>
+          <option value="Tirthan Valley">Tirthan Valley</option>
+          <option value="Jibhi">Jibhi</option>
+          <option value="Uttarkashi">Uttarkashi</option>
+          <option value="Kasol">Kasol</option>
+          <option value="Manali">Manali</option>
+          <option value="Spiti">Spiti</option>
+        </select>
+
+        <select class="field" id="priceFilter">
+          <option value="All">Any Price</option>
+          <option value="0-10000">Under ₹10,000</option>
+          <option value="10000-15000">₹10,000 - ₹15,000</option>
+          <option value="15000-50000">₹15,000+</option>
+        </select>
+
+        <select class="field" id="durationFilter">
+          <option value="All">Any Duration</option>
+          <option value="2 Days">2 Days</option>
+          <option value="3 Days">3 Days</option>
+          <option value="4 Days">4 Days</option>
+          <option value="5 Days">5 Days</option>
+          <option value="6 Days">6 Days</option>
+        </select>
+
+        <select class="field" id="difficultyFilter">
+          <option value="All">Any Difficulty</option>
+          <option value="Easy">Easy</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Challenging">Challenging</option>
+        </select>
+
+        <select class="field" id="typeFilter">
+          <option value="All">Any Experience Type</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Village Life">Village Life</option>
+          <option value="Spiritual">Spiritual</option>
+          <option value="Music & Culture">Music & Culture</option>
+          <option value="Photography">Photography</option>
+          <option value="Exploration">Exploration</option>
+        </select>
+      </div>
+
+      <div class="results-count reveal" id="resultsCount">Showing 6 experiences</div>
+      <div class="trip-grid" id="exploreTrips"></div>
+    </div>
+  </section>
+
+  <section class="section" id="trip">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Trip page</div>
+        <h2>A fully detailed premium experience page.</h2>
+        <p>
+          Hero gallery, trip overview, host profile, itinerary, included services and a booking widget — all in one elegant flow.
+        </p>
+      </div>
+
+      <div class="trip-page-layout">
+        <div class="reveal" style="display:grid; gap:22px;">
+          <div class="gallery-panel glass">
+            <div class="main-gallery">
+              <img id="mainTripImage" src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1600&q=80" alt="Trip Image">
+            </div>
+
+            <div class="gallery-thumbs">
+              <div class="gallery-thumb active" data-image="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1600&q=80">
+                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=900&q=80" alt="">
+              </div>
+              <div class="gallery-thumb" data-image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="">
+              </div>
+              <div class="gallery-thumb" data-image="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80">
+                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="">
+              </div>
+              <div class="gallery-thumb" data-image="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="overview-card glass reveal">
+            <div class="tag">Featured trip</div>
+            <h3 style="font-size:38px; margin-top:16px; line-height:1.06;">Unmapped Pass Discovery</h3>
+            <p class="small-muted" style="margin-top:10px;">A premium creator-led Himalayan exploration through high-altitude roads, hidden villages and cinematic landscapes.</p>
+
+            <div class="overview-grid">
+              <div class="overview-chip">Location<strong>Spiti Valley</strong></div>
+              <div class="overview-chip">Duration<strong>6 Days / 5 Nights</strong></div>
+              <div class="overview-chip">Difficulty<strong>Moderate</strong></div>
+              <div class="overview-chip">Group Size<strong>12 Travelers</strong></div>
+            </div>
+          </div>
+
+          <div class="host-card glass reveal">
+            <h3 style="font-size:30px; margin-bottom:14px;">Host</h3>
+            <div style="display:grid; grid-template-columns:96px 1fr; gap:18px; align-items:start;">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" alt="Host" style="width:96px;height:96px;border-radius:24px;object-fit:cover;">
+              <div>
+                <h4 style="font-size:24px;">Kabir Unknown</h4>
+                <p class="muted" style="margin:6px 0 12px;">Explorer • filmmaker • mountain storyteller</p>
+                <p class="muted">
+                  Kabir hosts small-group routes for travelers who want dramatic landscapes, meaningful interactions and a deeper connection with Himalayan culture.
+                </p>
+                <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
+                  <span class="tag">Instagram</span>
+                  <span class="tag">YouTube</span>
+                  <span class="tag">142K followers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-card glass reveal">
+            <h3 style="font-size:30px; margin-bottom:10px;">Itinerary</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-day">01</div>
+                <div>
+                  <h4>Village arrival</h4>
+                  <p class="muted">Check in, welcome dinner, local introductions and a cinematic sunset orientation.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-day">02</div>
+                <div>
+                  <h4>Trek and exploration</h4>
+                  <p class="muted">Scenic route walk, creator-led visual storytelling session and mountain picnic stop.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-day">03</div>
+                <div>
+                  <h4>Cultural immersion</h4>
+                  <p class="muted">Village craft exchange, local food, music and stories with Himalayan hosts.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-day">04</div>
+                <div>
+                  <h4>Hidden pass drive</h4>
+                  <p class="muted">Photographic route, premium viewpoints, creator shoot moments and campfire hangout.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="services-card glass reveal">
+            <h3 style="font-size:30px; margin-bottom:10px;">Included services</h3>
+            <div class="service-list">
+              <div class="service-item">✓ Stay</div>
+              <div class="service-item">✓ Meals</div>
+              <div class="service-item">✓ Local guide</div>
+              <div class="service-item">✓ Creator-host sessions</div>
+              <div class="service-item">✓ Transport on route</div>
+              <div class="service-item">✓ Community activities</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trip-side reveal">
+          <div class="booking-card glass">
+            <div class="tag">Booking widget</div>
+            <div class="price-row">
+              <div>
+                <div class="price">₹24,500</div>
+                <div class="small-muted">per traveler</div>
+              </div>
+              <div class="small-muted">Rated 4.9 ★</div>
+            </div>
+
+            <div class="field-group">
+              <input type="date" class="field" id="bookingDate">
+              <select class="field" id="travelerCount">
+                <option value="1">1 Traveler</option>
+                <option value="2">2 Travelers</option>
+                <option value="3">3 Travelers</option>
+                <option value="4">4 Travelers</option>
+                <option value="5">5 Travelers</option>
+                <option value="6">6 Travelers</option>
+              </select>
+              <button class="btn btn-primary" style="width:100%;" id="bookNowBtn">Book Now</button>
+              <p class="small-muted">You can connect this button to WhatsApp, Razorpay or a custom booking backend later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="creators">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Creators page</div>
+        <h2>Meet the creators hosting unforgettable experiences.</h2>
+        <p>
+          Every creator profile is crafted to feel premium, trustworthy and community-first.
+        </p>
+      </div>
+
+      <div class="creator-grid reveal" id="creatorGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="host">
+    <div class="container host-layout">
+      <div class="reveal">
+        <div class="section-title">
+          <div class="eyebrow">Host a trip</div>
+          <h2>Turn your community into real-world experiences.</h2>
+          <p>
+            TrippyVibeZ gives creators a premium platform to host trips, build trust, showcase culture and create deeper connections beyond the screen.
+          </p>
+        </div>
+
+        <div class="benefit-list">
+          <div class="benefit glass">
+            <h4 style="font-size:20px; margin-bottom:8px;">Why host with TrippyVibeZ?</h4>
+            <p class="muted">Launch curated travel experiences with premium visuals, better storytelling and a trusted booking flow.</p>
+          </div>
+          <div class="benefit glass">
+            <h4 style="font-size:20px; margin-bottom:8px;">Creator-first growth</h4>
+            <p class="muted">Build stronger loyalty with your audience through journeys that reflect your identity and niche.</p>
+          </div>
+          <div class="benefit glass">
+            <h4 style="font-size:20px; margin-bottom:8px;">Cultural depth</h4>
+            <p class="muted">Showcase places responsibly, collaborate with locals and build experiences that feel meaningful.</p>
+          </div>
+        </div>
+
+        <div class="success-cards">
+          <div class="success-card glass">
+            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80" alt="">
+            <div class="text">
+              <h4>Maya Trails</h4>
+              <p class="muted">Sold out her first slow-travel village retreat in 11 days.</p>
+            </div>
+          </div>
+          <div class="success-card glass">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="">
+            <div class="text">
+              <h4>Lens Rohan</h4>
+              <p class="muted">Built a premium photography expedition community around the Himalayas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card glass reveal">
+        <h3 style="font-size:34px; margin-bottom:8px;">Creator application</h3>
+        <p class="muted" style="margin-bottom:18px;">Apply to become a host and pitch your first creator-led Himalayan experience.</p>
+
+        <form id="hostForm" class="field-group">
+          <input type="text" class="field" placeholder="Name" required>
+          <input type="text" class="field" placeholder="Instagram / YouTube" required>
+          <input type="text" class="field" placeholder="Trip idea" required>
+          <input type="text" class="field" placeholder="Location" required>
+          <input type="number" class="field" placeholder="Expected group size" required>
+          <input type="text" class="field" placeholder="Trip duration" required>
+          <input type="file" class="field">
+          <button class="btn btn-primary" style="width:100%;">Apply to Become a Host</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">About / vision</div>
+        <h2>A creator-led future for Himalayan travel.</h2>
+        <p>
+          TrippyVibeZ exists to make travel feel human again — local, story-driven and rooted in the energy of creators and communities.
+        </p>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="about-card glass">
+          <h3>Our story</h3>
+          <p>
+            We believe the next generation of travel should feel more personal than packaged. Instead of generic itineraries, TrippyVibeZ connects travelers with creators who can shape real experiences around culture, vibe and storytelling.
+          </p>
+        </div>
+        <div class="about-card glass">
+          <h3>Why creator-led travel</h3>
+          <p>
+            Creators already bring people together online through perspective, trust and identity. Travel becomes more powerful when that connection moves into the real world.
+          </p>
+        </div>
+        <div class="about-card glass">
+          <h3>Focus on Himalayan culture</h3>
+          <p>
+            The Himalayas hold layers of beauty, silence, tradition, art and community. We want every route to respect that depth and share it responsibly.
+          </p>
+        </div>
+        <div class="about-card glass">
+          <h3>Future vision</h3>
+          <p>
+            A premium platform where creators host curated journeys, travelers discover places through stories and local communities benefit from better-designed tourism.
+          </p>
+        </div>
+      </div>
+
+      <div class="vision-grid reveal">
+        <div class="vision-item glass">
+          <div style="font-size:28px;">✦</div>
+          <h4>Community-led</h4>
+          <p>Travel built around belonging, not just bookings.</p>
+        </div>
+        <div class="vision-item glass">
+          <div style="font-size:28px;">⛰</div>
+          <h4>Himalayan-first</h4>
+          <p>Focused on mountain culture, villages and routes with soul.</p>
+        </div>
+        <div class="vision-item glass">
+          <div style="font-size:28px;">✧</div>
+          <h4>Cinematic design</h4>
+          <p>Every touchpoint feels premium, aspirational and modern.</p>
+        </div>
+        <div class="vision-item glass">
+          <div style="font-size:28px;">☰</div>
+          <h4>Creator ecosystem</h4>
+          <p>An expandable system for hosts, stories, maps and communities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="community">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="eyebrow">Community page</div>
+        <h2>Moments, people and stories that make the experience real.</h2>
+        <p>
+          A trust-building gallery of photo moments, creator highlights, trip stories and visual energy from the road.
+        </p>
+      </div>
+
+      <div class="community-grid reveal">
+        <div class="media-card glass large">
+          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=80" alt="">
+          <div class="media-label">
+            <div>
+              <strong style="font-size:22px;">Sunrise over the high valleys</strong>
+              <div class="muted">A shared moment from the Spiti creator expedition</div>
+            </div>
+            <div class="tag">Featured</div>
+          </div>
+        </div>
+
+        <div class="media-card glass tall">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="media-label">
+            <div>
+              <strong>Campfire stories</strong>
+              <div class="muted">Night one in the mountains</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card glass">
+          <img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="media-label">
+            <div>
+              <strong>Village walk</strong>
+              <div class="muted">Slow travel moments</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card glass">
+          <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="media-label">
+            <div>
+              <strong>Creator meetup</strong>
+              <div class="muted">Shared journeys</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card glass">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="media-label">
+            <div>
+              <strong>Culture and rhythm</strong>
+              <div class="muted">Music in the hills</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card glass">
+          <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80" alt="">
+          <div class="media-label">
+            <div>
+              <strong>Memory frames</strong>
+              <div class="muted">People you meet matter most</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-list reveal">
+        <div class="testimonial glass">
+          <p>
+            “It felt like joining a beautiful story, not just booking a trip. The group vibe, local moments and creator energy made it unforgettable.”
+          </p>
+          <strong>Rhea Malhotra</strong>
+          <span class="muted">Traveler</span>
+        </div>
+        <div class="testimonial glass">
+          <p>
+            “The route was curated in a way that felt aesthetic, meaningful and smooth. It had depth without losing the premium feel.”
+          </p>
+          <strong>Arjun Verma</strong>
+          <span class="muted">Traveler</span>
+        </div>
+        <div class="testimonial glass">
+          <p>
+            “Hosting with TrippyVibeZ helped me transform my online community into a real experience with trust and style.”
+          </p>
+          <strong>Maya Trails</strong>
+          <span class="muted">Creator host</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-card glass reveal">
+        <div>
+          <div class="eyebrow">Host your own experience</div>
+          <h2 style="font-family:'Clash Display', sans-serif; font-size:clamp(34px, 5vw, 60px); line-height:1.02; letter-spacing:-.04em; margin-bottom:12px;">
+            Build your next journey with a community that already trusts your story.
+          </h2>
+          <p class="muted" style="max-width:620px;">
+            Premium visuals, creator-first storytelling and a platform made for memorable Himalayan experiences.
+          </p>
+        </div>
+        <div style="display:flex; justify-content:flex-start; gap:14px; flex-wrap:wrap;">
+          <a href="#host" class="btn btn-primary">Apply to Become a Host</a>
+          <a href="#explore" class="btn btn-secondary">Explore Experiences</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card glass">
+        <div>
+          <div class="brand" style="margin-bottom:12px;">
+            <div class="brand-badge">T</div>
+            <span>TrippyVibeZ</span>
+          </div>
+          <p class="muted" style="max-width:650px;">
+            A premium creator-led travel platform for adventures, village experiences and cultural journeys across the Himalayas.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#explore">Experiences</a>
+          <a href="#creators">Creators</a>
+          <a href="#map">Map</a>
+          <a href="#host">Host</a>
+          <a href="#about">About</a>
+          <a href="#community">Community</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const trips = [
+      {
+        title: "Moonlit Ridge Escape",
+        location: "Tirthan Valley",
+        host: "Aarav Nomad",
+        duration: "3 Days",
+        price: 12900,
+        priceText: "₹12,900",
+        rating: 4.9,
+        difficulty: "Moderate",
+        type: "Adventure",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Village Soul Retreat",
+        location: "Jibhi",
+        host: "Maya Trails",
+        duration: "2 Days",
+        price: 8400,
+        priceText: "₹8,400",
+        rating: 4.8,
+        difficulty: "Easy",
+        type: "Village Life",
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Temple & Silence Route",
+        location: "Uttarkashi",
+        host: "Vedika Journeys",
+        duration: "4 Days",
+        price: 15600,
+        priceText: "₹15,600",
+        rating: 4.7,
+        difficulty: "Easy",
+        type: "Spiritual",
+        image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Peaks & Pixels Expedition",
+        location: "Kasol",
+        host: "Lens Rohan",
+        duration: "5 Days",
+        price: 19900,
+        priceText: "₹19,900",
+        rating: 5.0,
+        difficulty: "Challenging",
+        type: "Photography",
+        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Echoes of the Hills",
+        location: "Manali",
+        host: "Naina Folk",
+        duration: "3 Days",
+        price: 10900,
+        priceText: "₹10,900",
+        rating: 4.8,
+        difficulty: "Easy",
+        type: "Music & Culture",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "Unmapped Pass Discovery",
+        location: "Spiti",
+        host: "Kabir Unknown",
+        duration: "6 Days",
+        price: 24500,
+        priceText: "₹24,500",
+        rating: 4.9,
+        difficulty: "Moderate",
+        type: "Exploration",
+        image: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1200&q=80"
+      }
+    ];
+
+    const creators = [
+      {
+        name: "Aarav Nomad",
+        niche: "Adventure Storytelling",
+        trips: 14,
+        rating: 4.9,
+        followers: "182K",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        name: "Maya Trails",
+        niche: "Slow Travel & Village Life",
+        trips: 9,
+        rating: 4.8,
+        followers: "96K",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        name: "Vedika Journeys",
+        niche: "Spiritual Himalayan Routes",
+        trips: 11,
+        rating: 4.7,
+        followers: "121K",
+        image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        name: "Lens Rohan",
+        niche: "Photography Expeditions",
+        trips: 7,
+        rating: 5.0,
+        followers: "204K",
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    const featuredTrips = document.getElementById("featuredTrips");
+    const exploreTrips = document.getElementById("exploreTrips");
+    const creatorGrid = document.getElementById("creatorGrid");
+    const resultsCount = document.getElementById("resultsCount");
+    const toast = document.getElementById("toast");
+
+    const searchInput = document.getElementById("searchInput");
+    const locationFilter = document.getElementById("locationFilter");
+    const priceFilter = document.getElementById("priceFilter");
+    const durationFilter = document.getElementById("durationFilter");
+    const difficultyFilter = document.getElementById("difficultyFilter");
+    const typeFilter = document.getElementById("typeFilter");
+
+    function tripCardHTML(trip) {
+      return `
+        <article class="trip-card glass">
+          <div class="trip-image-wrap">
+            <img class="trip-image" src="${trip.image}" alt="${trip.title}">
+            <div class="trip-shade"></div>
+          </div>
+          <div class="trip-top">
+            <span class="pill">${trip.type}</span>
+            <span class="pill">${trip.priceText}</span>
+          </div>
+          <div class="trip-bottom">
+            <div class="trip-host">Hosted by ${trip.host}</div>
+            <h3 class="trip-title">${trip.title}</h3>
+            <div class="trip-meta">
+              <span class="icon-inline">📍 ${trip.location}</span>
+              <span class="icon-inline">⏳ ${trip.duration}</span>
+              <span class="icon-inline">★ ${trip.rating}</span>
+            </div>
+            <div class="trip-actions">
+              <a href="#trip" class="btn btn-secondary">View Trip</a>
+              <span class="small-muted">${trip.difficulty}</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function creatorCardHTML(creator) {
+      return `
+        <article class="creator-card glass">
+          <div class="creator-thumb">
+            <img src="${creator.image}" alt="${creator.name}">
+          </div>
+          <div class="creator-body">
+            <div class="tag">${creator.niche}</div>
+            <h3 style="font-size:28px; margin-top:14px;">${creator.name}</h3>
+            <p class="muted" style="margin-top:8px;">Premium creator profile built for community-led hosting.</p>
+            <div class="creator-meta">
+              <div class="meta-chip">Followers<strong>${creator.followers}</strong></div>
+              <div class="meta-chip">Trips hosted<strong>${creator.trips}</strong></div>
+              <div class="meta-chip">Rating<strong>${creator.rating} ★</strong></div>
+              <div class="meta-chip">Status<strong>Available</strong></div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderFeaturedTrips(list) {
+      featuredTrips.innerHTML = list.map(tripCardHTML).join("");
+    }
+
+    function renderCreatorGrid() {
+      creatorGrid.innerHTML = creators.map(creatorCardHTML).join("");
+    }
+
+    function getFilteredTrips() {
+      const search = searchInput.value.trim().toLowerCase();
+      const location = locationFilter.value;
+      const duration = durationFilter.value;
+      const difficulty = difficultyFilter.value;
+      const type = typeFilter.value;
+      const price = priceFilter.value;
+
+      return trips.filter(trip => {
+        const matchesSearch =
+          trip.title.toLowerCase().includes(search) ||
+          trip.location.toLowerCase().includes(search) ||
+          trip.host.toLowerCase().includes(search) ||
+          trip.type.toLowerCase().includes(search);
+
+        const matchesLocation = location === "All" || trip.location === location;
+        const matchesDuration = duration === "All" || trip.duration === duration;
+        const matchesDifficulty = difficulty === "All" || trip.difficulty === difficulty;
+        const matchesType = type === "All" || trip.type === type;
+
+        let matchesPrice = true;
+        if (price === "0-10000") matchesPrice = trip.price < 10000;
+        if (price === "10000-15000") matchesPrice = trip.price >= 10000 && trip.price <= 15000;
+        if (price === "15000-50000") matchesPrice = trip.price > 15000;
+
+        return matchesSearch && matchesLocation && matchesDuration && matchesDifficulty && matchesType && matchesPrice;
+      });
+    }
+
+    function renderExploreTrips() {
+      const filtered = getFilteredTrips();
+      exploreTrips.innerHTML = filtered.map(tripCardHTML).join("");
+      resultsCount.textContent = `Showing ${filtered.length} experience${filtered.length !== 1 ? "s" : ""}`;
+    }
+
+    [searchInput, locationFilter, priceFilter, durationFilter, difficultyFilter, typeFilter].forEach(el => {
+      el.addEventListener("input", renderExploreTrips);
+      el.addEventListener("change", renderExploreTrips);
+    });
+
+    document.querySelectorAll(".category-card").forEach(card => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".category-card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        const category = card.dataset.category;
+        typeFilter.value = category === "All" ? "All" : category;
+        document.getElementById("explore").scrollIntoView({ behavior: "smooth" });
+        renderExploreTrips();
+      });
+    });
+
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 14);
+      updateActiveNav();
+    });
+
+    function updateActiveNav() {
+      const sections = document.querySelectorAll("section[id]");
+      const links = document.querySelectorAll(".nav a");
+
+      let current = "";
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        if (window.scrollY >= top && window.scrollY < top + height) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      links.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobilePanel = document.getElementById("mobilePanel");
+
+    menuBtn.addEventListener("click", () => {
+      mobilePanel.classList.toggle("open");
+      menuBtn.textContent = mobilePanel.classList.contains("open") ? "✕" : "☰";
+    });
+
+    mobilePanel.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobilePanel.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    const thumbs = document.querySelectorAll(".gallery-thumb");
+    const mainTripImage = document.getElementById("mainTripImage");
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        thumbs.forEach(t => t.classList.remove("active"));
+        thumb.classList.add("active");
+        mainTripImage.src = thumb.dataset.image;
+      });
+    });
+
+    const mapPins = document.querySelectorAll(".map-pin");
+    const mapInfoBox = document.getElementById("mapInfoBox");
+
+    mapPins.forEach(pin => {
+      pin.addEventListener("click", () => {
+        mapPins.forEach(p => p.classList.remove("active"));
+        pin.classList.add("active");
+
+        mapInfoBox.innerHTML = `
+          <h3 style="font-size:28px; margin-bottom:8px;">${pin.dataset.name}</h3>
+          <p class="muted" style="margin-bottom:14px;">${pin.dataset.status}</p>
+          <p style="margin-bottom:18px;">Featured route: <strong>${pin.dataset.trip}</strong>. Discover this destination through premium visuals, deeper local context and curated creator-led travel energy.</p>
+          <a href="${pin.dataset.link}" class="btn btn-primary">View full trip page</a>
+        `;
+      });
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2800);
+    }
+
+    document.getElementById("bookNowBtn").addEventListener("click", () => {
+      const date = document.getElementById("bookingDate").value;
+      const travelers = document.getElementById("travelerCount").value;
+      if (!date) {
+        showToast("Please select a date before booking.");
+        return;
+      }
+      showToast(`Booking request started for ${travelers} traveler(s) on ${date}.`);
+    });
+
+    document.getElementById("hostForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      showToast("Application submitted successfully.");
+      e.target.reset();
+    });
+
+    renderFeaturedTrips(trips);
+    renderExploreTrips();
+    renderCreatorGrid();
+    updateActiveNav();
+  </script>
+</body>
+</html>
